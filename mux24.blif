@@ -1,0 +1,22 @@
+.model mux24
+
+.inputs S a3 a2 a1 a0 b3 b2 b1 b0
+.outputs o3 o2 o1 o0
+
+.names S a3 b3 o3
+11- 1
+0-1 1
+
+.names S a2 b2 o2
+11- 1
+0-1 1
+
+.names S a1 b1 o1
+11- 1
+0-1 1
+
+.names S a0 b0 o0
+11- 1
+0-1 1
+
+.end 

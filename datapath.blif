@@ -1,0 +1,22 @@
+.model datapath
+
+.inputs dga dgb dgc dge dgf resgen loadindp loadoutdp vdp5 vdp4 vdp3 vdp2 vdp1 vdp0
+ 
+.outputs dna3 dna2 dna1 dna0 dnb3 dnb2 dnb1 dnb0 dnc3 dnc2 dnc1 dnc0 dne3 dne2 dne1 dne0 dnf3 dnf2 dnf1 dnf0 oversignal
+
+.subckt contatore4 g=dga reset=resgen n3=dna3 n2=dna2 n1=dna1 n0=dna0
+.subckt contatore4wof g=dgb reset=resgen n3=dnb3 n2=dnb2 n1=dnb1 n0=dnb0 overflow=overcontb
+.subckt contatore4 g=dgc reset=resgen n3=dnc3 n2=dnc2 n1=dnc1 n0=dnc0
+.subckt contatore4wof g=dge reset=resgen n3=dne3 n2=dne2 n1=dne1 n0=dne0 overflow=overconte
+.subckt contatore4 g=dgf reset=resgen n3=dnf3 n2=dnf2 n1=dnf1 n0=dnf0
+.subckt confrontatore8 v5=vdp5 v4=vdp4 v3=vdp3 v2=vdp2 v1=vdp1 v0=vdp0 loadin=loadindp loadout=loadoutdp reset=resgen sover=soverconf
+.subckt or3 a=overcontb b=overconte c=soverconf o=oversignal
+
+
+.search contatore4.blif
+.search contatore4wof.blif
+.search confrontatore8.blif
+.search or3.blif
+
+.end
+

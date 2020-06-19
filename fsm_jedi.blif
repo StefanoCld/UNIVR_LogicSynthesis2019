@@ -1,0 +1,140 @@
+.model fsm
+.inputs fi2 fi1 fi0 overfsm
+.outputs foi ferr2 ferr1 ferr0 fga fgb fgc fgd fge fgf resgenfsm loadinfsm \
+loadoutfsm
+.latch    [13] LatchOut_v4   0
+.latch    [14] LatchOut_v5   0
+.latch    [15] LatchOut_v6   0
+.start_kiss
+.i 4
+.o 13
+.p 16
+.s 7
+.r impoff
+0--- impoff impoff 0000000000000
+-0-- impoff impoff 0000000000000
+--0- impoff impoff 0000000000000
+111- impoff checki 1000100000100
+1--- checki millma 1000001000110
+0--- checki cielim 1000010000100
+1--- millma checko 1000000100101
+0--- millma impoff 0001000000100
+---0 cielim checki 1000100000100
+---1 cielim impoff 0101000000100
+1--0 checko uscita 1000000001100
+---1 checko impoff 0010000000100
+0--0 checko coelim 1000000010100
+---- uscita checki 1000100000100
+---0 coelim checki 1000100000100
+---1 coelim impoff 0110000000100
+.end_kiss
+.latch_order LatchOut_v4 LatchOut_v5 LatchOut_v6
+.code impoff 000
+.code checki 010
+.code millma 111
+.code cielim 101
+.code checko 110
+.code uscita 011
+.code coelim 001
+.names fi2 LatchOut_v4 LatchOut_v5 LatchOut_v6 [13]
+1111 1
+1010 1
+0010 1
+.names fi2 fi1 fi0 overfsm LatchOut_v4 LatchOut_v5 LatchOut_v6 [14]
+----011 1
+---0-01 1
+1---111 1
+1--01-0 1
+1---010 1
+111--00 1
+.names fi2 overfsm LatchOut_v4 LatchOut_v5 LatchOut_v6 [15]
+101-0 1
+001-0 1
+1-010 1
+0-010 1
+.names fi2 fi1 fi0 overfsm LatchOut_v4 LatchOut_v5 LatchOut_v6 foi
+----011 1
+---0-01 1
+1---111 1
+1--01-0 1
+0--01-0 1
+1---010 1
+0---010 1
+111--00 1
+.names overfsm LatchOut_v4 LatchOut_v5 LatchOut_v6 ferr2
+110- 1
+1001 1
+.names overfsm LatchOut_v4 LatchOut_v5 LatchOut_v6 ferr1
+11-0 1
+1001 1
+.names fi2 overfsm LatchOut_v4 LatchOut_v5 LatchOut_v6 ferr0
+-110- 1
+0-111 1
+.names fi2 fi1 fi0 overfsm LatchOut_v4 LatchOut_v5 LatchOut_v6 fga
+----011 1
+---0-01 1
+111--00 1
+.names fi2 LatchOut_v4 LatchOut_v5 LatchOut_v6 fgb
+0010 1
+.names fi2 LatchOut_v4 LatchOut_v5 LatchOut_v6 fgc
+1010 1
+.names fi2 LatchOut_v4 LatchOut_v5 LatchOut_v6 fgd
+1111 1
+.names fi2 overfsm LatchOut_v4 LatchOut_v6 fge
+0010 1
+.names fi2 overfsm LatchOut_v4 LatchOut_v6 fgf
+1010 1
+.names fi2 fi1 fi0 overfsm LatchOut_v4 LatchOut_v5 LatchOut_v6 resgenfsm
+---110- 1
+----011 1
+---0-01 1
+---11-0 1
+1---111 1
+0---111 1
+---1001 1
+1--01-0 1
+0--01-0 1
+1---010 1
+0---010 1
+111--00 1
+.names fi2 LatchOut_v4 LatchOut_v5 LatchOut_v6 loadinfsm
+1010 1
+.names fi2 LatchOut_v4 LatchOut_v5 LatchOut_v6 loadoutfsm
+1111 1
+.exdc 
+.inputs fi2 fi1 fi0 overfsm LatchOut_v4 LatchOut_v5 LatchOut_v6
+.outputs [13] [14] [15] foi ferr2 ferr1 ferr0 fga fgb fgc fgd fge fgf \
+resgenfsm loadinfsm loadoutfsm
+.names LatchOut_v4 LatchOut_v5 LatchOut_v6 [13]
+100 1
+.names LatchOut_v4 LatchOut_v5 LatchOut_v6 [14]
+100 1
+.names LatchOut_v4 LatchOut_v5 LatchOut_v6 [15]
+100 1
+.names LatchOut_v4 LatchOut_v5 LatchOut_v6 foi
+100 1
+.names LatchOut_v4 LatchOut_v5 LatchOut_v6 ferr2
+100 1
+.names LatchOut_v4 LatchOut_v5 LatchOut_v6 ferr1
+100 1
+.names LatchOut_v4 LatchOut_v5 LatchOut_v6 ferr0
+100 1
+.names LatchOut_v4 LatchOut_v5 LatchOut_v6 fga
+100 1
+.names LatchOut_v4 LatchOut_v5 LatchOut_v6 fgb
+100 1
+.names LatchOut_v4 LatchOut_v5 LatchOut_v6 fgc
+100 1
+.names LatchOut_v4 LatchOut_v5 LatchOut_v6 fgd
+100 1
+.names LatchOut_v4 LatchOut_v5 LatchOut_v6 fge
+100 1
+.names LatchOut_v4 LatchOut_v5 LatchOut_v6 fgf
+100 1
+.names LatchOut_v4 LatchOut_v5 LatchOut_v6 resgenfsm
+100 1
+.names LatchOut_v4 LatchOut_v5 LatchOut_v6 loadinfsm
+100 1
+.names LatchOut_v4 LatchOut_v5 LatchOut_v6 loadoutfsm
+100 1
+.end

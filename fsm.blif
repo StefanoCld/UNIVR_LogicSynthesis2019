@@ -1,0 +1,41 @@
+.model fsm
+
+.inputs fi2 fi1 fi0 overfsm
+
+.outputs foi ferr2 ferr1 ferr0 fga fgb fgc fgd fge fgf resgenfsm loadinfsm loadoutfsm
+
+.start_kiss
+
+.i 4
+.o 13
+.r impoff
+
+0--- impoff impoff 0000000000000
+-0-- impoff impoff 0000000000000
+--0- impoff impoff 0000000000000
+
+111- impoff checki 1000100000100
+
+1--- checki millma 1000001000110
+0--- checki cielim 1000010000100
+
+---0 cielim checki 1000100000100
+---1 cielim impoff 0101000000100
+
+1--- millma checko 1000000100101
+0--- millma impoff 0001000000100
+
+1--0 checko uscita 1000000001100
+---1 checko impoff 0010000000100
+0--0 checko coelim 1000000010100
+
+---0 coelim checki 1000100000100
+---1 coelim impoff 0110000000100
+
+---- uscita checki 1000100000100
+
+.end_kiss
+
+.end
+
+

@@ -1,0 +1,31 @@
+.model contatore4
+
+.inputs g reset
+.outputs n3 n2 n1 n0
+
+.subckt out0 out=zero
+
+.subckt mux24 S=reset a3=r3 a2=r2 a1=r1 a0=r0 b3=zero b2=zero b1=zero b0=zero o3=mx3 o2=mx2 o1=mx1 o0=mx0
+
+.subckt sommatore4 A3=mx3 A2=mx2 A1=mx1 A0=mx0 B3=zero B2=zero B1=zero B0=zero CIN=g O3=s3 O2=s2 O1=s1 O0=s0 COUT=not_connected0
+
+.subckt registro4 A3=s3 A2=s2 A1=s1 A0=s0 O3=r3 O2=r2 O1=r1 O0=r0
+
+.names s3 n3
+1 1
+
+.names s2 n2
+1 1
+
+.names s1 n1
+1 1
+
+.names s0 n0
+1 1
+
+.search out0.blif
+.search mux24.blif
+.search sommatore4.blif
+.search registro4.blif
+
+.end

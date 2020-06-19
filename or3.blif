@@ -1,0 +1,11 @@
+.model or3
+
+.inputs a b c 
+.outputs o
+
+.names a b c o
+1-- 1
+-1- 1
+--1 1
+
+.end

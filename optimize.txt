@@ -1,0 +1,19 @@
+read_library synch.genlib
+rl fsmd_beforeop.blif
+echo ----------
+print_stats
+echo ----Minimizzazione-----------------------
+source script.rugged
+print_stats
+echo ----Mapping------------------------------
+map -m 0
+#print_delay
+print_stats
+echo -----Ottimizzazione----------------------
+source script.rugged
+print_stats
+echo -----Mappatura---------------------------
+map -m 0
+#print_delay
+print_stats
+

@@ -1,0 +1,17 @@
+.model not8
+
+.inputs i7 i6 i5 i4 i3 i2 i1 i0
+.outputs o7 o6 o5 o4 o3 o2 o1 o0
+
+.subckt not i=i7 o=o7 
+.subckt not i=i6 o=o6 
+.subckt not i=i5 o=o5 
+.subckt not i=i4 o=o4 
+.subckt not i=i3 o=o3 
+.subckt not i=i2 o=o2 
+.subckt not i=i1 o=o1 
+.subckt not i=i0 o=o0 
+
+.search not.blif
+
+.end

@@ -1,0 +1,40 @@
+.model confrontatore8
+
+.inputs v5 v4 v3 v2 v1 v0 loadin loadout reset
+.outputs sover
+
+.subckt out1 out=uno
+.subckt out0 out=zero
+
+.subckt mux28 S=loadin a7=zero a6=zero a5=v5 a4=v4 a3=v3 a2=v2 a1=v1 a0=v0 b7=rt7 b6=rt6 b5=rt5 b4=rt4 b3=rt3 b2=rt2 b1=rt1 b0=rt0 o7=tk7 o6=tk6 o5=tk5 o4=tk4 o3=tk3 o2=tk2 o1=tk1 o0=tk0
+
+.subckt registro8 A7=tk7 A6=tk6 A5=tk5 A4=tk4 A3=tk3 A2=tk2 A1=tk1 A0=tk0 O7=rt7 O6=rt6 O5=rt5 O4=rt4 O3=rt3 O2=rt2 O1=rt1 O0=rt0
+
+.subckt not8 i7=zero i6=zero i5=v5 i4=v4 i3=v3 i2=v2 i1=v1 i0=v0 o7=ng7 o6=ng6 o5=ng5 o4=ng4 o3=ng3 o2=ng2 o1=ng1 o0=ng0
+
+.subckt sommatore8 A7=ng7 A6=ng6 A5=ng5 A4=ng4 A3=ng3 A2=ng2 A1=ng1 A0=ng0 B7=zero B6=zero B5=zero B4=zero B3=zero B2=zero B1=zero B0=uno CIN=zero O7=nk7 O6=nk6 O5=nk5 O4=nk4 O3=nk3 O2=nk2 O1=nk1 O0=nk0 COUT=cout_not_connected0
+
+.subckt sommatore8 A7=tk7 A6=tk6 A5=tk5 A4=tk4 A3=tk3 A2=tk2 A1=tk1 A0=tk0 B7=nk7 B6=nk6 B5=nk5 B4=nk4 B3=nk3 B2=nk2 B1=nk1 B0=nk0 CIN=zero O7=dif7 O6=dif6 O5=dif5 O4=dif4 O3=dif3 O2=dif2 O1=dif1 O0=dif0 COUT=cout_not_connected1
+
+.subckt mux28 S=loadout a7=dif7 a6=dif6 a5=dif5 a4=dif4 a3=dif3 a2=dif2 a1=dif1 a0=dif0 b7=zero b6=zero b5=zero b4=zero b3=zero b2=zero b1=zero b0=zero o7=sb7 o6=sb6 o5=sb5 o4=sb4 o3=sb3 o2=sb2 o1=sb1 o0=sb0
+
+.subckt sommatore8 A7=sb7 A6=sb6 A5=sb5 A4=sb4 A3=sb3 A2=sb2 A1=sb1 A0=sb0 B7=reg7 B6=reg6 B5=reg5 B4=reg4 B3=reg3 B2=reg2 B1=reg1 B0=reg0 CIN=zero O7=fz7 O6=fz6 O5=fz5 O4=fz4 O3=fz3 O2=fz2 O1=fz1 O0=fz0 COUT=over2
+
+.subckt mux28 S=reset a7=fz7 a6=fz6 a5=fz5 a4=fz4 a3=fz3 a2=fz2 a1=fz1 a0=fz0 b7=zero b6=zero b5=zero b4=zero b3=zero b2=zero b1=zero b0=zero o7=cm7 o6=cm6 o5=cm5 o4=cm4 o3=cm3 o2=cm2 o1=cm1 o0=cm0
+
+.subckt registro8 A7=cm7 A6=cm6 A5=cm5 A4=cm4 A3=cm3 A2=cm2 A1=cm1 A0=cm0 O7=reg7 O6=reg6 O5=reg5 O4=reg4 O3=reg3 O2=reg2 O1=reg1 O0=reg0
+
+.subckt amaggioredib8 A7=fz7 A6=fz6 A5=fz5 A4=fz4 A3=fz3 A2=fz2 A1=fz1 A0=fz0 B7=uno B6=uno B5=zero B4=zero B3=uno B2=zero B1=zero B0=zero maggiore=over1
+
+.subckt or a=over1 b=over2 x=sover
+
+.search mux28.blif
+.search registro8.blif
+.search out0.blif
+.search out1.blif
+.search not8.blif
+.search sommatore8.blif
+.search amaggioredib8.blif
+.search or.blif
+
+.end
